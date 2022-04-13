@@ -1,6 +1,7 @@
+import 'package:bmi_calculator/constantfile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'constantfile.dart';
 class RepeatTextandIconWidget extends StatelessWidget {
   RepeatTextandIconWidget({@required this.iconData,this.label});
   final IconData iconData;
@@ -18,9 +19,9 @@ class RepeatTextandIconWidget extends StatelessWidget {
         SizedBox(
           height: 15.0,
         ),
-        Text('MALE', style: TextStyle(
-          fontSize: 30.0,
-        ),
+        Text(
+          label,
+          style: klabel,
         )],
     );
   }
