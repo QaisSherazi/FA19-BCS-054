@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:bmi_calculator/constantfile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPagestate extends State<InputPage> {
    Gender selectGender;
+   int sliderHeight=180;
    @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,8 +66,27 @@ class _InputPagestate extends State<InputPage> {
           Expanded(child: RepeatContainerCode(
             colors: Color((0xFF1D1E33)),
            cardWidget: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
              children: [
                Text('HEIGHT',style: klabel,),
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Text(sliderHeight.toString(),style: knumber,),
+                   Text('cm',style: klabel,)
+                 ],
+               ),
+               Slider(value: sliderHeight.toDouble(),
+                   min: 120.0,
+                   max: 220.0,
+                   activeColor: Color(0xFFEB1555),
+                   inactiveColor: Color(0xFF8D8E98),
+
+                   onChanged: (double newvalue){
+                 setState(() {
+                sliderHeight=newvalue.round();
+                 });
+                   })
              ],
            ),
           ),
