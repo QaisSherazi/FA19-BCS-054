@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icontextfile.dart';
 import 'containerfile.dart';
+const activecolor= Color(0xFF1D1E33);
+const deactivecolor= Color(0xFF111328);
 
 class InputPage extends StatefulWidget {
 
@@ -12,6 +15,19 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPagestate extends State<InputPage> {
+  Color maleColor = deactivecolor;
+  Color femaleColor= activecolor;
+  void UpdateColor(int gender) {
+    if (gender == 1) {
+      maleColor = activecolor;
+      femaleColor = deactivecolor;
+    }
+    if (gender == 2) {
+      femaleColor = activecolor;
+      maleColor = deactivecolor;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,19 +38,33 @@ class _InputPagestate extends State<InputPage> {
         children: <Widget>[
           Expanded(child: Row(
             children: [
-              Expanded(child:new RepeatContainerCode(
-                colors: Color((0xFF1D1E33)),
-                cardWidget: RepeatTextandIconWidget(
-                  iconData:FontAwesomeIcons.male,
-                  label: 'MALE',
+              Expanded(child:GestureDetector(
+                onTap: (){
+                  setState(() {
+                    UpdateColor(1);
+                  });
+                },
+                child: RepeatContainerCode(
+                  colors: maleColor,
+                  cardWidget: RepeatTextandIconWidget(
+                    iconData:FontAwesomeIcons.male,
+                    label: 'MALE',
+                  ),
                 ),
               ),
     ),
-          Expanded(child: RepeatContainerCode(
-            colors: Color((0xFF1D1E33)),
-            cardWidget: RepeatTextandIconWidget(
-              iconData:FontAwesomeIcons.female,
-              label: 'FEMALE',
+          Expanded(child:GestureDetector(
+            onTap: (){
+              setState(() {
+                UpdateColor(2);
+              });
+            },
+            child: RepeatContainerCode(
+              colors: femaleColor,
+              cardWidget: RepeatTextandIconWidget(
+                iconData:FontAwesomeIcons.female,
+                label: 'FEMALE',
+              ),
             ),
           ),
           ),
