@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RepeatContainerCode extends StatelessWidget {
-  RepeatContainerCode({required this.colors,required this.cardWidget});
+  RepeatContainerCode({@required this.colors,this.cardWidget});
   Color colors;
   final Widget cardWidget;
   @override
