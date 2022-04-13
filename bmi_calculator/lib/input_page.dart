@@ -26,35 +26,35 @@ class _InputPagestate extends State<InputPage> {
         children: <Widget>[
           Expanded(child: Row(
             children: [
-              Expanded(child:GestureDetector(
-                onTap: (){
-                  setState(() {
-                    selectGender=Gender.male;
-                  });
-                },
+              Expanded(
                 child: RepeatContainerCode(
+                  onPressed: (){
+                    setState(() {
+                      selectGender=Gender.male;
+                    });
+                  },
                   colors: selectGender==Gender.male?activecolor:deactivecolor,
                   cardWidget: RepeatTextandIconWidget(
                     iconData:FontAwesomeIcons.male,
                     label: 'MALE',
                   ),
                 ),
-              ),
+
     ),
-          Expanded(child:GestureDetector(
-            onTap: (){
-              setState(() {
-                selectGender=Gender.female;
-              });
-            },
+          Expanded(
             child: RepeatContainerCode(
+              onPressed: (){
+                setState(() {
+                  selectGender=Gender.female;
+                });
+              },
               colors: selectGender==Gender.male?activecolor:deactivecolor,
               cardWidget: RepeatTextandIconWidget(
                 iconData:FontAwesomeIcons.female,
                 label: 'FEMALE',
               ),
             ),
-          ),
+
           ),
           ],
           ),
