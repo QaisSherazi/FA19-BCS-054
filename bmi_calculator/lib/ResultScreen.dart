@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'input_page.dart';
 
 class ResultScreen extends StatelessWidget {
+ResultScreen({@required this.bmiresult,@required this.resulttext,@required this.intrepetation});
+  final String bmiresult;
+  final String resulttext;
+  final String intrepetation;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +34,15 @@ children: [
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Normal',style: ktitlestyles2,),
-            Text('18.3',style: ktitlestyles2,),
-            Text('BMI is low',style: ktitlestyles2,
+            Text(resulttext.toUpperCase(),
+              style: ktitlestyles2,),
+            Text(bmiresult,style: TextStyle(
+              color: Colors.green,fontSize: 40.0,
+              fontWeight: FontWeight.bold,
+            )),
+            Text(intrepetation,style: TextStyle(
+              fontSize: 20.0
+            ),
             textAlign: TextAlign.center,)
 
           ],

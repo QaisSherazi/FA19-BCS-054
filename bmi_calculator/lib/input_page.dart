@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'package:bmi_calculator/calculator.dart';
 import 'package:bmi_calculator/constantfile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'icontextfile.dart';
 import 'containerfile.dart';
 import 'constantfile.dart';
 import 'ResultScreen.dart';
+import 'calculator.dart';
 enum Gender{
   male,
   female,
@@ -165,7 +167,12 @@ class _InputPagestate extends State<InputPage> {
           ),
         GestureDetector(
           onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen()));
+            CalculatorBrain calc = CalculatorBrain(height: sliderHeight,weight: sliderWeight);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen(
+          bmiresult: calc.calculateBMI(),
+          resulttext: calc.getResult(),
+          intrepetation: calc.getIntrepetation(),
+        )));
           },
           child: Container(
 
