@@ -14,3 +14,7 @@ const klargebutton=TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
 );
+const ktitlestyles2=TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
