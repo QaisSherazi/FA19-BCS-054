@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icontextfile.dart';
 import 'containerfile.dart';
 import 'constantfile.dart';
+import 'ResultScreen.dart';
 enum Gender{
   male,
   female,
@@ -161,12 +162,26 @@ class _InputPagestate extends State<InputPage> {
     ),
     ],
     ),
-          ),]),
+          ),
+        GestureDetector(
+          onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen()));
+          },
+          child: Container(
+
+            child:Center
+              (child: Text('CALCULATE',style: klargebutton,)),
+
+            color:Color(0xFFEB1555),
+            margin: EdgeInsets.only(top: 20.0),
+            width: double.infinity,
+            height: 58.0,
+          ),
+        )
+        ]),
     );
    }
 }
-
-
 class RoundIcon extends StatelessWidget {
   RoundIcon({@required this.iconData, @required this.onPress});
 
