@@ -5,12 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase/start.dart';
 
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
 
-class _LoginScreenState extends State<LoginScreen> {
   late String _email, _password;
   final auth = FirebaseAuth.instance;
 
@@ -29,9 +26,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: 'Email'
               ),
               onChanged: (value) {
-                setState(() {
-                  _email = value.trim();
-                });
+               // setState(() {
+                 // _email = value.trim();
+                //});
               },
             ),
           ),
@@ -41,9 +38,9 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: true,
               decoration: InputDecoration(hintText: 'Password'),
               onChanged: (value) {
-                setState(() {
-                  _password = value.trim();
-                });
+               // setState(() {
+                 // _password = value.trim();
+                //});
               },
             ),
 
